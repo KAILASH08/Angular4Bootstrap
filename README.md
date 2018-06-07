@@ -1,6 +1,6 @@
 # Angular4bootstrap
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3. It is developed with use of Visual Studio Code IDE. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3. It is developed with use of Visual Studio Code IDE. ![projectstruc](https://user-images.githubusercontent.com/13345005/41083709-7c9de002-6a4f-11e8-94f5-d4479159da6b.PNG)
 
 ## Development server
 
