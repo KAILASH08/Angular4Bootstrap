@@ -1,0 +1,98 @@
+<!-- <form>
+  <mat-form-field>
+     Package Request Type
+    <mat-select placeholder="Favorite food" [(ngModel)]="selectedValue" name="food">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> Selected value: {{selectedValue}} </p>
+</form> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    
+<table class="tablePro">
+  <tr>
+    <td align="left"><b>Package Request Type</b><br/>
+<mat-form-field>
+  <mat-select [(value)]="selected">
+    <mat-option value="cs">Create Schedule</mat-option>
+    <mat-option value="gn">Generate Now</mat-option>
+    <mat-option value="ac">Adhoc Schedule</mat-option>
+    <mat-option value="pe">Partial Export</mat-option>
+  </mat-select>
+</mat-form-field>
+<!-- <p>Value of selected Request Type: {{selected}}</p> -->
+</td>
+<td class="tdstart_date"><b>Start Date</b><br/>
+<mat-form-field>   
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</td>
+<td><b>Start Time</b><br/>
+      <timepicker color="primary" submitLabel="Ok" revertLabel="Revert" [(userTime)]="exportTime" (onSubmit)="submit()">        
+      </timepicker>
+</td>
+<td>
+  <b>Effective Date</b><br/><br/>
+  <input placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+             <button (click)="d.toggle()" type="button">
+              <img src="{{CalImgUrl}}" style="width: 1.2rem;cursor: pointer;"/>
+            </button>
+            <hr/>
+<pre>Model: {{ model | json }}</pre>
+</td>
+<td>
+  <b>Package Window Date</b><br/><br/>
+  <input placeholder="yyyy-mm-dd"
+             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+             <button (click)="d.toggle()" type="button">
+              <img src="{{CalImgUrl}}" style="width: 1.2rem;cursor: pointer;"/>
+            </button>
+            <hr/>
+<pre>Model: {{ model | json }}</pre>
+</td>
+</tr>
+<tr>
+  <td><b>Package Instruction</b><br/>
+    <mat-form-field>
+      <mat-select [(value)]="selected">
+        <mat-option value="rg">Regular</mat-option>
+        <mat-option value="gn">Special</mat-option>        
+      </mat-select>
+    </mat-form-field>
+    </td>
+</tr>
+<tr>
+  <td><b>Package Content</b><br/>
+    <mat-form-field>
+      <mat-select [(value)]="selected">
+        <mat-option value="rg">Messages and File Output</mat-option>
+        <mat-option value="gn">Generate</mat-option>        
+      </mat-select>
+    </mat-form-field>
+    </td> 
+    <td><mat-slide-toggle>Export Package</mat-slide-toggle></td>
+</tr>
+<!-- <tr>
+  <td><mat-slide-toggle>Slide me!</mat-slide-toggle></td>
+</tr> -->
+<tr>
+  <td colspan="2" align="right">
+    <!-- <button type="button" class="btn btn-danger btn-rounded waves-light" mdbWavesEffect>Cancle</button>
+    <button type="button" class="btn btn-outline-danger btn-rounded" mdbWavesEffect>Danger</button> -->
+    <!-- <button type="button" class="btn btn-outline-success btn-rounded" mdbWavesEffect>Cancle</button>
+    <button type="button" class="btn btn-success btn-rounded waves-light" mdbWavesEffect>Save</button> -->
+  </td>
+</tr>
+
+</table>
+<div style="margin-left: 1005px">
+<button type="button" class="btn btn-outline-success btn-rounded" mdbWavesEffect>Cancle</button>
+<button type="button" class="btn btn-success btn-rounded waves-light" mdbWavesEffect>Save</button>
+</div>
+    
+
+

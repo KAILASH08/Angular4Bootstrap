@@ -1,0 +1,57 @@
+<!-- <link rel="stylesheet" href="../node_modules/ng.tree/style/tree.css"> -->
+<!-- node_modules\ng.tree\style\tree.css -->
+<main role="main" class="container container_c">
+    <h4 class="mt-2">Manage Package Schedule</h4>
+    <div id="maindiv" class="jumbotron" style="width: 1320px;">
+        <div class="row form-group">
+            <div class="col-md-3">
+                <label class="control-label">Search</label>
+                <br/>
+                <div class="btn-group" role="group" aria-label="..." id="myDIV">
+                    <button (click)="test(this)" type="button" id="contains" class="btn btn-success" style="border-top-left-radius: 25px; border-bottom-left-radius: 25px">Contains</button>
+                    <button (click)="test_c(this)" type="button" class="btn btn-default" id="exact" style="border-top-right-radius: 25px;border-bottom-right-radius: 25px">Exact</button>
+                </div>
+            </div>
+            <div>
+                <br/>
+                <input type="text" id="s_numnam" placeholder="Search By Number or Name" class="search_numname" [(ngModel)]="filter">
+            </div>
+            <div class="market">
+                <label class="control-label">Market</label>
+                <br/>
+                <input type="text"  class="marketText" value="US Country office" disabled>
+            </div>
+            <div class="region">
+                <label class="control-label">Region</label>
+                <br />
+                <select (change)="firstDropDownChanged($event.target.selectedIndex - 1)" class="regionSelect">
+                    <option>All</option>
+                    <option *ngFor="let v of _values1">{{ v.val }}</option>
+                </select>
+            </div>
+            <div class="coop">
+                <label class="control-label">Coop</label>
+                <br />
+                <select class="coopSelect">
+                    <option>All</option>
+                    <option *ngFor='let v of _values2'>{{ v }}</option>
+                </select>
+            </div>
+            <div class="searchb">
+                <button (click)="searchbtn()" type="button" class="btn btn-success">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+            </div>
+        </div>
+    </div>
+    <h5>Select Non-restaurant Node Only</h5>
+  <ngTree [treeData]="treeData" [treeConfig]="treeConfig"></ngTree>
+  <!-- <dual-list [source]="source" [(destination)]="target" height="150px" ></dual-list> -->
+  <div style="text-align:center">
+    <app-custom-listbox [source]="source" [(destination)]="target" height="350px"
+		(selectChange)="showMessage($event)" sourceName="Available Restaurants" targetName="Selections"
+		[sort]="true" [compare]="compare"></app-custom-listbox>
+</div>
+<pre>{{message|json}}</pre>
+<app-app-create-package></app-app-create-package>
+  </main>

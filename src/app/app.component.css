@@ -1,0 +1,50 @@
+.searchb
+{
+    margin-left: 1000px;
+}
+.container_c
+{
+    margin:60px;
+}
+.search_numname
+{
+    width: 250px;
+    margin-top: 7px;
+}
+.market
+{
+    margin-left:  30px;
+}
+.marketText
+{
+    width: 150px;
+}
+.region
+{
+    margin-left:  30px;
+}
+.regionSelect
+{
+    width: 150px;
+}
+.coop
+{
+    margin-left:  40px;   
+}
+.coopSelect
+{
+    width: 150px;
+}
+.searchtable
+{
+    background-color: rgb(105, 104, 104);
+    display: none;
+} 
+.thead>tr>th {
+    cursor: pointer;
+}
+.newPackSch
+{
+    margin-left: 600px;
+    border-radius: 25px;
+}

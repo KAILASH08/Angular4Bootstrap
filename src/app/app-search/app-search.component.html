@@ -1,0 +1,83 @@
+<main role="main" class="container container_c">
+  <h4 class="mt-2">Package Schedule</h4>
+  <div id="maindiv" class="jumbotron" style="width: 1320px;">
+      <div class="row form-group">
+          <div class="col-md-3">
+              <label class="control-label">Search</label>
+              <br/>
+              <div class="btn-group" role="group" aria-label="..." id="myDIV">
+                  <button (click)="test(this)" type="button" id="contains" class="btn btn-success" style="border-top-left-radius: 25px; border-bottom-left-radius: 25px">Contains</button>
+                  <button (click)="test_c(this)" type="button" class="btn btn-default" id="exact" style="border-top-right-radius: 25px;border-bottom-right-radius: 25px">Exact</button>
+              </div>
+          </div>
+          <div>
+              <br/>
+              <input type="text" id="s_numnam" placeholder="Search By Number or Name" class="search_numname" [(ngModel)]="filter">
+          </div>
+          <div class="market">
+              <label class="control-label">Market</label>
+              <br/>
+              <input type="text"  class="marketText" value="US Country office" disabled>
+          </div>
+          <div class="region">
+              <label class="control-label">Region</label>
+              <br />
+              <select (change)="firstDropDownChanged($event.target.selectedIndex - 1)" class="regionSelect">
+                  <option>All</option>
+                  <option *ngFor="let v of _values1">{{ v.val }}</option>
+              </select>
+          </div>
+          <div class="coop">
+              <label class="control-label">Coop</label>
+              <br />
+              <select class="coopSelect">
+                  <option>All</option>
+                  <option *ngFor='let v of _values2'>{{ v }}</option>
+              </select>
+          </div>
+          <div class="searchb">
+              <button (click)="searchbtn()" type="button" class="btn btn-success">
+                  <span class="glyphicon glyphicon-search"></span> Search
+              </button>
+          </div>
+      </div>
+  </div>
+ <!--  <a routerLink="/newpackage" routerLinkActive="active">New Package</a> -->
+  <div class="newPackSch">
+      <button  type="button" class="btn btn-success newPackSch" routerLink="/newpackage">
+          New Package Schedule
+      </button>     
+  </div>
+  <div id="tablediv" class="jumbotron" style=" visibility: hidden;width: 1320px;" *ngIf="isValid; else elseBlock">
+          <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Number</th>
+                      <th (click)="sort('restaurant_name')">Restaurant Name
+                          <span class="glyphicon sort-icon" *ngIf="key =='restaurant_name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                      <th>Market</th>                        
+                            <th (click)="sort('region')">Region
+                              <span class="glyphicon sort-icon" *ngIf="key =='region'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                            </th>
+                      <th (click)="sort('coop')">Coop
+                          <span class="glyphicon sort-icon" *ngIf="key =='coop'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>      
+
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of items | orderBy:genre: reverse | filter:filter | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                      <td>{{i}}</td>
+                      <td>{{item.restaurant_name}}</td>
+                      <td>{{item.market}}</td>
+                      <td>{{item.region}}</td>
+                      <td>{{item.coop}}</td>
+                    </tr>
+                  </tbody>                    
+                </table>  
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>                 
+  </div> 
+  <!-- <router-outlet></router-outlet>
+  <a routerLink="/new-packageschedule" >Component 2</a> -->
+</main>
